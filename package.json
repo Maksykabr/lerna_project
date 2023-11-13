@@ -1,0 +1,23 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start_all:all": "concurrently \"npm run start:app1\" \"npm run start:app2\"",
+    "start:all": "npm run start:app1 & npm run start:app2",
+    "start:app1": "cd packages/app1 && npm start",
+    "start:app2": "cd packages/app2 && npm start",
+    "dev:all": "concurrently \"npm run dev:app1\" \"npm run dev:app2\"",
+    "dev:app1": "cd packages/app1 && npm run dev",
+    "dev:app2": "cd packages/app2 && npm run dev"
+  },
+  "dependencies": {
+    "axios": "^1.6.1",
+    "nodemon": "^3.0.1"
+  },
+  "devDependencies": {
+    "lerna": "^7.4.2"
+  }
+}
